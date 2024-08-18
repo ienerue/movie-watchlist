@@ -1,5 +1,4 @@
-let watchlist = localStorage.getItem("watchlist")
-watchlist = JSON.parse(watchlist)
+let watchlist = []
 
 const moviesSection = document.getElementById("movies-section")
 const searchInput = document.getElementById("search-input")
