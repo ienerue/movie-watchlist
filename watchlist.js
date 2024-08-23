@@ -6,15 +6,13 @@ watchlist = JSON.parse(watchlist)
 watchlistSection.addEventListener("click", e => {
     if (e.target.id) {
         watchlist = watchlist.filter(id => !(id === e.target.id))
+        localStorage.setItem("watchlist", JSON.stringify(watchlist))
         renderFilms(watchlist)
-        console.log(watchlist)
-        watchlist = JSON.stringify(watchlist)
-        localStorage.setItem("watchlist", watchlist)
     }
 })
 
 const renderFilms = async (array) =>  {
-    if (watchlist.length > 0) {
+    if (array.length > 0) {
         let filmsString = ``
         for (let filmImdb of array) {
             const response = await fetch(`https://www.omdbapi.com/?apikey=ec2395f0&i=${filmImdb}`)
@@ -39,8 +37,8 @@ const renderFilms = async (array) =>  {
                         <p class="plot">${Plot}</p>
                     </div>
                 </section>`
-            watchlistSection.innerHTML = filmsString
         }
+        watchlistSection.innerHTML = filmsString
     } else {
         watchlistSection.innerHTML = `
             <main class="container movies-container">
