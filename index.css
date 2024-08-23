@@ -1,7 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    font-family: "Inter", sans-serif;
+    font-family: "Montserrat", sans-serif;
     position: relative;
 }
 
@@ -96,7 +96,7 @@ nav p {
 }
 
 .search-button {
-    font-family: "Inter", sans-serif;
+    font-family: "Montserrat", sans-serif;
     width: 120px;
     border: none;
     border-top-right-radius: 6px;
@@ -121,8 +121,8 @@ section {
 }
 
 h2 {
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 22px;
+    font-weight: 600;
 }
 
 h2, p {
@@ -130,7 +130,7 @@ h2, p {
 }
 
 .rating, .information p {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 400;
     color: #111827;
 }
@@ -167,6 +167,7 @@ h2, p {
 }
 
 .poster {
+    border: 2px solid #672280;
     width: 99px;
     margin-right: 20px;
 }
@@ -195,7 +196,7 @@ h2, p {
 
 .add, .remove {
     margin-left: auto;
-    font-family: "Inter", sans-serif;
+    font-family: "Montserrat", sans-serif;
     background-color: white;
     background-repeat: no-repeat;
     padding-left: 21px;
