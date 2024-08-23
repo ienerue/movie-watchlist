@@ -32,7 +32,9 @@ const renderFilms = async (array) =>  {
                         <div class="information">
                             <p>${Runtime}</p>
                             <p class="genre">${Genre}</p>
-                            <button id="${imdbID}" class="remove ">Remove</button>
+                            <a class="icon">
+                                <i id="${imdbID}" class="fa-solid fa-square-minus fa-2x"></i>
+                            </a>
                         </div>
                         <p class="plot">${Plot}</p>
                     </div>
@@ -41,13 +43,12 @@ const renderFilms = async (array) =>  {
         }
     } else {
         watchlistSection.innerHTML = `
-            <div class="placeholder">
-                <p>Your watchlist is looking a little empty...</p>
-                <div class="add-movies">
-                    <img src="/images/add-icon.png">
-                    <p>Let's add some movies</p>
+            <main class="container movies-container">
+                <div class="placeholder">
+                    <img src="/images/film-icon.png">
+                    <p>Your watchlist is empty</p>
                 </div>
-            </div>`
+            </main>`
     }
         
 }

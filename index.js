@@ -25,6 +25,7 @@ moviesSection.addEventListener("click", e => {
         watchlist = JSON.stringify(watchlist)
         localStorage.setItem("watchlist", watchlist)
         watchlist = JSON.parse(watchlist)
+        document.getElementById(`${e.target.id}-icon`).innerHTML = `<i class="fa-solid fa-square-check fa-2x"></i>`
     }
 })
 
@@ -47,7 +48,9 @@ const renderFilms = async (array) => {
                     <div class="information">
                         <p>${Runtime}</p>
                         <p class="genre">${Genre}</p>
-                        <button id="${imdbID}" class="add">Watchlist</button>
+                        <a id="${imdbID}-icon" class="icon">
+                            <i id="${imdbID}" class="fa-solid fa-square-plus fa-2x"></i>
+                        </a>
                     </div>
                     <p class="plot">${Plot}</p>
                 </div>

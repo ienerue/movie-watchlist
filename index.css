@@ -25,7 +25,7 @@ nav {
     align-items: center;
 }
 
-i {
+nav i {
     color: white;
 }
 
@@ -194,24 +194,12 @@ h2, p {
     margin: 0 0 0 19px;
 }
 
-.add, .remove {
-    margin-left: auto;
-    font-family: "Montserrat", sans-serif;
-    background-color: white;
-    background-repeat: no-repeat;
-    padding-left: 21px;
-    border: none;
+.icon i {
     color: #111827;
-    font-size: 12px;
-    cursor: pointer;
 }
 
-.add {
-    background-image: url("/images/add-icon.png");
-}
-
-.remove {
-    background-image: url("/images/remove-icon.png");
+.icon i:hover, .icon i:focus {
+    color: #672280;
 }
 
 .plot {
