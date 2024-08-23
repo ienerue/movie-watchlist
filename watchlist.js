@@ -3,11 +3,9 @@ const watchlistSection = document.getElementById("watchlist-section")
 let watchlist = localStorage.getItem("watchlist")
 watchlist = JSON.parse(watchlist)
 
-watchlistSection.addEventListener("click", function(e){
+watchlistSection.addEventListener("click", e => {
     if (e.target.id) {
-        watchlist = watchlist.filter(function(id){
-            return !(id === e.target.id)
-        })
+        watchlist = watchlist.filter(id => !(id === e.target.id))
         renderFilms(watchlist)
         console.log(watchlist)
         watchlist = JSON.stringify(watchlist)
@@ -15,32 +13,31 @@ watchlistSection.addEventListener("click", function(e){
     }
 })
 
-function renderFilms(array) {
+const renderFilms = async (array) =>  {
     if (watchlist.length > 0) {
         let filmsString = ``
         for (let filmImdb of array) {
-            fetch(`https://www.omdbapi.com/?apikey=ec2395f0&i=${filmImdb}`)
-                .then(response => response.json())
-                .then(data => {
-                    filmsString += `
-                        <section class="movie">
-                            <img class="poster" src="${data.Poster}">
-                            <div>
-                                <div class="title">
-                                    <h2>${data.Title}</h2>
-                                    <img class="star" src="/images/star-icon.png">
-                                    <p class="rating">${data.imdbRating}</p>
-                                </div>
-                                <div class="information">
-                                    <p>${data.Runtime}</p>
-                                    <p class="genre">${data.Genre}</p>
-                                    <button id="${data.imdbID}" class="remove ">Remove</button>
-                                </div>
-                                <p class="plot">${data.Plot}</p>
-                            </div>
-                        </section>`
-                    watchlistSection.innerHTML = filmsString
-                })
+            const response = await fetch(`https://www.omdbapi.com/?apikey=ec2395f0&i=${filmImdb}`)
+            const data = await response.json()
+            const {Poster, Title, imdbRating, Runtime, Genre, imdbID, Plot} = data
+            filmsString += `
+                <section class="movie">
+                    <img class="poster" src="${Poster}">
+                    <div>
+                        <div class="title">
+                            <h2>${Title}</h2>
+                            <img class="star" src="/images/star-icon.png">
+                            <p class="rating">${imdbRating}</p>
+                        </div>
+                        <div class="information">
+                            <p>${Runtime}</p>
+                            <p class="genre">${Genre}</p>
+                            <button id="${imdbID}" class="remove ">Remove</button>
+                        </div>
+                        <p class="plot">${Plot}</p>
+                    </div>
+                </section>`
+            watchlistSection.innerHTML = filmsString
         }
     } else {
         watchlistSection.innerHTML = `

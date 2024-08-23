@@ -6,38 +6,62 @@ html, body {
 }
 
 .container {
-    width: 461px;
+    min-width: 480px;
+    max-width: 770px;
     margin: auto;
+    padding: 10px 30px;
 }
 
 /* HEADER */
 
 header {
-    background-image: url("images/film-background.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+    padding: 0 0 83px;
 }
 
-.header-container {
+nav {
     display: flex;
+    gap: 10px;
     align-items: center;
-    justify-content: space-between;
-    padding: 83px 0;
+}
+
+i {
+    color: white;
+}
+
+h1, nav p {
+    color: white;
+    text-shadow: 0 0 2px #374151;
 }
 
 h1 {
-    font-size: 43px;
+    font-size: 50px;
     font-weight: 800;
-    color: #374151;
-    text-shadow: 0 0 5px white;
+}
+
+a, nav p {
+    font-weight: 700;
 }
 
 a {
-    font-size: 16px;
-    font-weight: 700;
-    color: white;
-    text-shadow: 0 0 2px #374151;
+    margin-left: auto;
+    font-size: 14px;
+    color: #672280;
+    background-color: white;
+    padding: 8px 12px;
+    border-radius: 10px;
     text-decoration: none;
+}
+
+nav p {
+    font-size: 20px;
+}
+
+.headline {
+    min-width: 480px;
+    max-width: 770px;
+    margin: 65px auto 0;
+    padding: 0 30px;
 }
 
 /* SEARCH SECTION */
@@ -51,7 +75,7 @@ a {
     border: 1px solid #D1D5DB;
     border-radius: 6px;
     position: absolute;
-    top: 258px;
+    top: 243px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -194,6 +218,3 @@ h2, p {
     color: #6B7280;
     text-align: left;
 }
-
-
-
